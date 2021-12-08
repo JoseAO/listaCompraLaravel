@@ -21,6 +21,10 @@ Route::get('/login', function () {
     return view('auth.login');
 });
 
+Route::get('/logout', function () {
+    return 'logout usuario';
+});
+
 Route::get('/productos', function () {
     return view('productos.index');
 });
