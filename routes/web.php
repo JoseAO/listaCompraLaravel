@@ -13,9 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
+Route::get('/', [HomeController::class, 'getHome']);
 
 Route::get('/login', function () {
     return view('auth.login');
@@ -25,18 +23,14 @@ Route::get('/logout', function () {
     return 'logout usuario';
 });
 
-Route::get('/productos', function () {
-    return view('productos.index');
-});
+Route::group(['prefix' => 'productos'], function () {
 
-Route::get('/productos/show/{id}', function ($id = null) {
-    return view('productos.show', array('id'=>$id));
-});
+    Route::get('/', [ProductoController::class, 'getIndex']);
 
-Route::get('/productos/create', function () {
-    return view('productos.create');
-});
+    Route::get('/show/{id}', [ProductoController::class, 'getShow']);
 
-Route::get('/productos/edit/{id}', function ($id = null) {
-    return view('productos.edit', array('id'=>$id));
+    Route::get('/edit/{id}', [ProductoController::class, 'getEdit']);
+
+    Route::get('/create', [ProductoController::class, 'getCreate']);
+
 });
