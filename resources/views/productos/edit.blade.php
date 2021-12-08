@@ -20,7 +20,7 @@
 
              <div class="form-group">
                 <label for="title">Nombre</label>
-                <input type="text" name="nombre" id="nombre" class="form-control" value="{{ $producto[0] }}">
+                <input type="text" name="nombre" id="nombre" class="form-control" value="{{ $producto->nombre }}">
              </div>
 
              <div class="form-group">
@@ -30,7 +30,7 @@
 
             <div class="form-group">
                 <label for="title">Categoria</label>
-               <input type="text" name="categoria" id="categoria" class="form-control" value="{{ $producto[1] }}">
+               <input type="text" name="categoria" id="categoria" class="form-control" value="{{ $producto->categoria }}">
             </div>
 
             <div class="form-group">
